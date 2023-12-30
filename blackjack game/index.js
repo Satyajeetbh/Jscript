@@ -2,14 +2,22 @@ let messageEl=document.querySelector("#message-el")//#is used to twll the selcto
 let sumEl=document.querySelector("#sum-el")
 let cardsEl=document.querySelector("#cards-el")
 
+let player={
+    name:"Per",
+    chips:145
+}
+
+let playerEl =document.getElementById("player-el")
+playerEl.textContent=player.name+": $"+player.chips
 
 let cards=[]
 let sum=0
 let hasBlackJack=false
-let isAlive=null
 let message=""
+let isAlive=null
 
 function startGame(){
+    isAlive=true
     let firstCard=randomNumber();
     let secondCard=randomNumber();
     cards=[firstCard,secondCard]
@@ -45,9 +53,11 @@ function randomNumber(){
 }
 
 function newCard(){
-    console.log("Drawing a new card")
-    let card=randomNumber()
-    sum+=card  
-    cards.push(card)  
-    renderGame()
+    if(isAlive===true && hasBlackJack===false){
+        console.log("Drawing a new card")
+        let card=randomNumber()
+        sum+=card  
+        cards.push(card)  
+        renderGame()
+    }
 }
