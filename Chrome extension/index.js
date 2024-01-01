@@ -4,5 +4,8 @@ const inputEl=document.getElementById("input-el")
 
 
 inputBtn.addEventListener("click",function(){
-    console.log("Button clicked from addEventListener")
+    myLeads.push(inputEl.value) 
+    for(let i=0;i<myLeads.length;i++){
+        console.log(myLeads[i])
+    }
 })
